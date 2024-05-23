@@ -1,6 +1,5 @@
 import chai, { expect } from "chai";
 import ChaiAsPromised from "chai-as-promised";
-import { utils } from "ethers";
 import { ethers } from "hardhat";
 import { MerkleTree } from "merkletreejs";
 import keccak256 from "keccak256";
@@ -12,7 +11,7 @@ import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 chai.use(ChaiAsPromised);
 
 function getPrice(price: string, mintAmount: number) {
-  return utils.parseEther(price).mul(mintAmount);
+  return ethers.parseEther(price).mul(mintAmount);
 }
 
 describe(CollectionConfig.contractName, async function () {

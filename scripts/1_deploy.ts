@@ -11,9 +11,9 @@ async function main() {
   const Contract = await ethers.getContractFactory(CollectionConfig.contractName);
   const contract = await Contract.deploy(...ContractArguments) as unknown as NftContractType;
 
-  await contract.deployed();
+  await contract.waitForDeployment();
 
-  console.log("Greeter deployed to:", contract.address);
+  console.log("Greeter deployed to:", await contract.getAddress());
 }
 
 main().catch((error) => {
